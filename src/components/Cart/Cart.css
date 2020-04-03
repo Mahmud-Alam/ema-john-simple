@@ -1,0 +1,19 @@
+.cartBox{
+    font-family: sans-serif;
+    border: 2px solid #232f3e;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 15px 15px 10px 10px;
+    text-align: center;
+}
+.cartBox h4{
+    color: #ff9900;
+    font-weight: 900;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.cartBox h5{
+    color: #b12704;
+    font-weight: 700;
+    padding-bottom: 20px;
+}

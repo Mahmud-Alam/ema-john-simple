@@ -1,9 +1,16 @@
 import React from 'react';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 const Inventory = () => {
     return (
         <div>
-            <h1>Inventory is coming</h1>
+            <div>
+                <Header></Header>
+            </div>
+            <div>
+                <Footer></Footer>
+            </div>
         </div>
     );
 };

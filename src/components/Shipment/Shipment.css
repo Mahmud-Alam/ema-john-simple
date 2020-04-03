@@ -1,0 +1,37 @@
+.ship-form{
+    margin: 30px 100px;
+    font-family: sans-serif;
+}
+.ship-form input {
+    display: block;
+    /* margin-top: 30px; */
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 300px;
+}
+.shipmentBox{
+    width: 400px;
+    display: flex;
+    margin: 20px;
+    align-items: center;
+}
+.shipmentLine{
+    width: 600px;
+}
+.shipmentLine .error{
+    color: red;
+    margin-top: 25px;
+}
+.shipment-button{
+    margin: 30px 0 50px 120px;
+    padding: 5px;
+    height: 40px;
+    border: 2px solid #ff9800 !important;
+}
+.shipment-button:hover{
+    background-color: #ff9800;
+}
+.ship-form a{
+    color: #ff9800 !important;
+}

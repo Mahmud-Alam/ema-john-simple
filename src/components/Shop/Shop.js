@@ -5,6 +5,10 @@ import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import { Link } from 'react-router-dom';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
 
 const Shop = () => {
     const first10 = fakeData.slice(0,10);
@@ -41,29 +45,37 @@ const Shop = () => {
             newCart = [...cart,product];
         }
         setCart(newCart);
-        addToDatabaseCart(product.key,count);    
+        addToDatabaseCart(product.key,count,cart.length);    
     }
 
     return (
-        <div className="twin-container">
-            <div className="product-container">
-                {
-                    products.map(pd=>
-                    <Product 
-                    key = {pd.key}
-                    showAddToCart ={true}
-                    handleAddProduct={handleAddProduct}
-                    product={pd}
-                    ></Product>)
-                }
+        <div>
+            <div>
+                <Header></Header>
             </div>
-            <div className="cart-container">
-                <Cart cart = {cart}>
-                    <Link to="/review">
-                    <button className="main-button">Review Order</button>
-                    </Link>
-                </Cart>
-            </div>    
+            <div className="twin-container">
+                <div className="product-container">
+                    {
+                        products.map(pd=>
+                        <Product 
+                        key = {pd.key}
+                        showAddToCart ={true}
+                        handleAddProduct={handleAddProduct}
+                        product={pd}
+                        ></Product>)
+                    }
+                </div>
+                <div className="cart-container">
+                    <Cart cart = {cart}>
+                        <Link to="/review">
+                        <button className="main-button"><FontAwesomeIcon icon={faShoppingBag}/> Review Order</button>
+                        </Link>
+                    </Cart>
+                </div>    
+            </div>
+            <div style={{marginTop:'100px'}}>
+                <Footer></Footer>
+            </div>
         </div>
     );
 };
