@@ -1,6 +1,5 @@
 import React from 'react';
 import './Cart.css'
-import { useAuth } from '../Login/useAuth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTags } from '@fortawesome/free-solid-svg-icons'
 
@@ -8,8 +7,6 @@ const Cart = (props) => {
     const cart = props.cart;
     //const user = useContext(UserContext);
     // er poriborte auth er hook use korbo
-
-    const auth = useAuth();
 
     //const totalPrice = cart.reduce((total,prd) => total + prd.price,0);
     let totalPrice = 0;

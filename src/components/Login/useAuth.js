@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "../../firebase.config";
-import Login from "./Login";
 import { useState, createContext } from "react";
 import { Route,Redirect } from "react-router-dom";
 
@@ -55,7 +54,7 @@ const Auth = () => {
         return firebase.auth().signInWithPopup(provider)
         .then(res => {
             const signedInUser = getUser(res.user);
-            console.log(res.user)
+            // console.log(res.user)
             setUser(signedInUser);
             return res.user;
         })
@@ -66,16 +65,34 @@ const Auth = () => {
         });
     }
     const signOut =()=>{
-        return firebase.auth().signOut().then(function() {
-            setUser(null);
+        return firebase.auth().signOut()
+        .then(res => {
+          const signedOutUser = {
+            isSignedIn: false, 
+            name: '',
+            phot:'',
+            email:'',
+            password:'',
+            error:'',
+            isValid:false,
+          }
+            setUser(signedOutUser);
+            // console.log(res);
             return true;
             // Sign-out successful.
           }).catch(function(error) {
             // An error happened.
-            console.log(error);
+            // console.log(error);
             return false;
           });
     }
+
+    /* email password */
+
+    
+  
+    
+    /* end email password */
 
     useEffect(()=>{
         firebase.auth().onAuthStateChanged(function(usr) {

@@ -4,8 +4,9 @@ import user from '../../images/user2.png';
 import './Header.css';
 import { useAuth } from '../Login/useAuth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingCart,faCartPlus } from '@fortawesome/free-solid-svg-icons'
-import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import { getDatabaseCart } from '../../utilities/databaseManager';
+import { Link } from 'react-router-dom';
 
 
 // const usePrevious = value =>{
@@ -18,7 +19,7 @@ import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseMana
 const Header = () => {
     //const user = useContext(UserContext); etar poriborte amra auth er hook use korbo
     const auth = useAuth();
-    console.log(auth.user)
+    // console.log(auth.user)
     // console.log(props.cart);
 
     const savedCart = getDatabaseCart();
@@ -55,17 +56,17 @@ const Header = () => {
                             <img src={logo} alt=""/>
                         </div>
                         <li className="nav-item active">
-                            <a className="nav-link" href="/shop">Shop <span className="sr-only">(current)</span></a>
+                            <Link className="nav-link" to="/shop">Shop<span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/review">Order Review</a>
+                            <Link className="nav-link" to="/review">Order Review</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/inventory">Manage Inventory</a>
+                            <Link className="nav-link" to="/inventory">Manage Inventory</Link>
                         </li>
                         <li className="nav-item">
                             {
-                                auth.user && <span style={{color:'#ff9800',lineHeight:'58px'}}>Welcome, {auth.user.name}</span>
+                                auth.user && <span style={{color:'#ff9800',lineHeight:'58px'}}>Welcome! {auth.user.name}</span>
                             }
                         </li>
                     </ul>
@@ -78,7 +79,8 @@ const Header = () => {
                         <li>
                             {
                                 auth.user ? <a onClick={handleSignOut} href="/login">Sign out</a>
-                                : <a href="/login">Sign in</a>
+                                : <Link to="/login">Sign in</Link>
+
                             }
                         </li>
                         <li>

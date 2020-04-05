@@ -1,7 +1,7 @@
 .login-area img{
-    height: 40px;
-    width: 150px;
-    margin-bottom: 50px;
+    height: 70px;
+    width: 250px;
+    margin-bottom: 80px;
 }
 *{
     box-sizing: border-box;
@@ -47,7 +47,7 @@
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     position: relative;
     overflow: hidden;
-    width: 900px;/*768*/
+    width: 1000px;/*768*/
     max-width: 100%;
     min-height: 650px;/*480*/
 }
@@ -61,6 +61,11 @@
     align-items: center;
     text-align: center;
     margin-top: 20px;
+}
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .social-container{
     margin: 20px 0;
@@ -133,9 +138,33 @@ hr{
     border: none;
     padding: 12px 15px;
     margin: 8px 0;
-    width: 100%;
+    width: 120%;
     border-radius: 5px;
 }
+
+/* Input button start*/
+.login-area .login-button{
+    width: 70%;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid #ff9900;
+    background: #ff9900;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    /* padding: 12px 45px; */
+    margin-top: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+.login-area .login-button:active{
+    transform: scale(0.95);
+}
+.login-area .login-button:focus{
+    outline: none;
+}
+/* Input button ends */
 
 .login-area button{
     border-radius: 20px;
